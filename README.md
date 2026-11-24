@@ -4,6 +4,17 @@ Welcome to the Automata Simulator, a full-stack web application designed to simu
 
 This project was developed by a team of six students as part of our university coursework.
 
+> [!NOTE]
+> **About this fork — the original C++ edition**
+>
+> This repository is a fork of [ShurikenBy6YoungTechStudents/automata-project](https://github.com/ShurikenBy6YoungTechStudents/automata-project).
+> The upstream project has since moved on: its automata engine was rewritten in JavaScript and the C++ core was removed.
+>
+> This fork preserves the project as it was originally built, with the **C++ engine at its heart**, and brings it up to date:
+> - **Cross-platform:** the C++ programs now compile and run on Windows, Linux and macOS, instead of relying on Windows-only `.exe` files.
+> - **Automatic builds:** the backend compiles the C++ core for your OS when it starts (`npm start` / `npm run dev`).
+> - **Refactored:** old platform-specific code was cleaned up, with help from [Claude](https://claude.com/claude-code).
+
 ---
 
 ## 🚀 Features
@@ -92,13 +103,16 @@ npm run dev
 ```
 The frontend development server will start, typically on `http://localhost:5173`. Open this URL in your browser.
 
-### 5. C++ Core (Optional)
-The backend uses pre-compiled C++ executables. If you need to recompile them:
+### 5. C++ Core
+The backend runs the C++ programs in `cpp/`. They are compiled automatically for your OS
+(Windows, Linux or macOS) when you run `npm start` or `npm run dev` in `backend/`, using
+`g++` or `clang++` (set `CXX` to pick another compiler). To rebuild them by hand:
 ```bash
-cd ../cpp
-g++ -std=c++17 -o NFAtoDFA NFAtoDFA.cpp
-# (repeat for other executables)
+cd backend
+npm run build:cpp            # builds whatever is missing or out of date
+npm run build:cpp -- --force # rebuilds everything
 ```
+On Windows the prebuilt `.exe` files are used when no compiler is installed.
 
 ---
 

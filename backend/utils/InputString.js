@@ -1,4 +1,5 @@
 import { spawn } from "child_process";
+import { cppBinary } from "./cppBinary.js";
 import path from "path";
 import { fileURLToPath } from 'url';
 
@@ -7,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export function testInputStringWithCpp({ transitions, start_state, end_states, input_string }) {
     return new Promise((resolve, reject) => {
-        const cppExecutable = path.join(__dirname, "..", "..", "cpp", "StringValidator.exe");
+        const cppExecutable = cppBinary("StringValidator");
         const cppProcess = spawn(cppExecutable);
 
         // Prepare input data for C++ program

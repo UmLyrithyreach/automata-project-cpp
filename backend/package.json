@@ -4,7 +4,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "build:cpp": "node scripts/build-cpp.js",
+    "predev": "node scripts/build-cpp.js",
+    "dev": "nodemon server.js",
+    "prestart": "node scripts/build-cpp.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,5 @@
 import { spawn } from "child_process";
+import { cppBinary } from "./cppBinary.js";
 import path from "path";
 import { fileURLToPath } from 'url';
 
@@ -7,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export function convertNFAtoDFA(data) {
     return new Promise((resolve, reject) => {
-        const cppExecutable = path.join(__dirname, "..", "..", "cpp", "NFAtoDFA.exe");
+        const cppExecutable = cppBinary("NFAtoDFA");
         console.log("Executing NFA to DFA conversion:", cppExecutable);
         console.log("Input data:", JSON.stringify(data, null, 2));
 

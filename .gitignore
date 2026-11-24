@@ -1,1 +1,7 @@
 .vscode/
+
+# C++ programs compiled on Linux/macOS (Windows .exe builds are committed)
+cpp/DFAorNFA
+cpp/MinimizeDFA
+cpp/NFAtoDFA
+cpp/StringValidator

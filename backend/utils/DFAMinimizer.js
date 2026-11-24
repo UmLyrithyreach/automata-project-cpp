@@ -1,4 +1,5 @@
 import { spawn } from "child_process";
+import { cppBinary } from "./cppBinary.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -7,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export function minimizeDFA(data) {
     return new Promise((resolve, reject) => {
-        const cppExecutable = path.join(__dirname, "..", "..", "cpp", "MinimizeDFA.exe");
+        const cppExecutable = cppBinary("MinimizeDFA");
         console.log("Executing DFA minimization:", cppExecutable);
         console.log("Input data:", JSON.stringify(data, null, 2));
 
